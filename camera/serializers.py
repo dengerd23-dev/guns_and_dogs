@@ -12,29 +12,41 @@ class CamerasSerializer(serializers.ModelSerializer):
         Cameras.object.filter(id=value).count()
         if value == 0:
             raise serializers.ValidationError("Camera not found")
+        else:
+            return value
 
     def validate_status(self, value):
         Cameras.objects.filter(status=value)
         if Cameras.objects.filter(status=value):
             raise serializers.ValidationError("Camera not found")
+        else:
+            return value
 
     def validate_active(self, value: int):
         event_active = Cameras.objects.all()
         if value not in event_active:
             raise serializers.ValidationError("Camera not active")
+        else:
+            return value
 
     def validate_adress(self, value):
         Cameras.objects.filter(adress=value)
         if Cameras.objects.filter(adress=value):
             raise serializers.ValidationError("there's no camera at that address")
+        else:
+            return value
 
     def validate_coordinates(self, value):
         if Cameras.objects.filter(coordinates=value):
             raise serializers.ValidationError("there's no camera at that coordinates")
+        else:
+            return value
 
     def validate_stream_url(self, value):
         if Cameras.objects.filter(stream_url=value):
             raise serializers.ValidationError("there's no camera at that stream_url")
+        else:
+            return value
 
 class DogsEventsSerializer(serializers.ModelSerializer):
     class Meta:
