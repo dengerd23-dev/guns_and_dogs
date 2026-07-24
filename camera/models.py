@@ -8,7 +8,7 @@ class ServiceSetting(models.Model):
     updated_at = models.DateTimeField(auto_now=True)
 
     def __str__(self):
-        return f"{self.id}: {self.key}: {self.value}"
+        return f" {self.key}: {self.value}"
 
 class Cameras(models.Model):
     name = models.TextField()
@@ -20,7 +20,7 @@ class Cameras(models.Model):
     stream_url = models.TextField()
 
     def __str__(self):
-        return f"{self.id}: {self.status}: {self.name}"
+        return f"{self.address}: {self.status}: {self.name}"
 
 class DogEvents(models.Model):
     status = models.BooleanField    ()
@@ -35,7 +35,7 @@ class DogEvents(models.Model):
     detected_at = models.FloatField()
 
     def __str__(self):
-        return f"{self.id}: {self.status}: {self.created_at}"
+        return f" {self.status}: {self.created_at}"
 
 class Events(models.Model):
     camera_id = models.TextField()
@@ -48,7 +48,7 @@ class Events(models.Model):
     timestamp = models.DateTimeField()
 
     def __str__(self):
-        return f"{self.id}: {self.status}"
+        return f" {self.status}"
 
 class PublicSafetyEvent(models.Model):
     camera_id = models.TextField()
@@ -60,7 +60,7 @@ class PublicSafetyEvent(models.Model):
     sent_at = models.DateTimeField()
 
     def __str__(self):
-        return f"{self.id}: {self.event_type}: {self.priority}"
+        return f" {self.event_type}: {self.priority}"
 
 class TrashEvent(models.Model):
     status = models.BooleanField()
@@ -68,7 +68,7 @@ class TrashEvent(models.Model):
     count_trashed = models.IntegerField()
 
     def __str__(self):
-        return f"{self.id}: {self.status}"
+        return f" {self.status}"
 
 class SuspiciousObjectEvent(models.Model):
     camera_id = models.TextField()
@@ -81,7 +81,7 @@ class SuspiciousObjectEvent(models.Model):
     detected_at = models.DateTimeField()
 
     def __str__(self):
-        return f"{self.id}: {self.object_type}: {self.standing_time_minutes}"
+        return f" {self.object_type}: {self.standing_time_minutes}"
 
 class LogsEvent(models.Model):
     camera_id = models.TextField()

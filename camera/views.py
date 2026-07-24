@@ -1,4 +1,3 @@
-
 from rest_framework import viewsets
 from .models import Cameras, DogEvents, TrashEvent, SuspiciousObjectEvent, Events, Logs, Settings_API
 from .serializers import CamerasSerializer, DogsEventsSerializer, TrashEventsSerializer, \
